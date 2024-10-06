@@ -863,6 +863,9 @@ class _WGridBuilderState extends State<WGridBuilder> {
       return list;
     }();
     return ListView.builder(
+      physics: (widget.crossAxisCount==widget.itemCount)?NeverScrollableScrollPhysics():null,
+      shrinkWrap: (widget.crossAxisCount==widget.itemCount)?false:true,
+      scrollDirection: Axis.vertical,
       itemCount: (widget.itemCount / widget.crossAxisCount).round(),
       itemBuilder: (context, RowIndex) {
         return CMaker(
